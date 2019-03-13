@@ -7,8 +7,7 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
-    @article.nearests.build
-    binding.pry
+    2.times { @article.nearests.build }
   end
 
   def create

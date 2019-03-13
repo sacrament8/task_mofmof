@@ -6,7 +6,7 @@
 <div class="show_field"><span>備考</span>　<%= @article.remark %></div>
 </div>
 <hr>
-<% @article.nearests.each do |near, i| %>
+<% @article.nearests.each_with_index do |near, i| %>
   <h5 class="show_field"><span>最寄り駅</span><%= i.to_i + 1 %></h5>
   <div class="show_wrapper">
   <div class="show_field"><span>路線名</span> <%= near.line_name %></div>
