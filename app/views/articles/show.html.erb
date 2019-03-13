@@ -1,8 +1,8 @@
 <div class="show_wrapper">
 <div class="show_field"><span>物件名:</span> <%= @article.name %></div>
-<div class="show_field"><span>賃料:</span> <%= @article.rent %>円</div>
+<div class="show_field"><span>賃料:</span> <%= "#{@article.rent.to_s(:delimited)}円" %></div>
 <div class="show_field"><span>住所:</span> <%= @article.address %></div>
-<div class="show_field"><span>築年数</span> <%= @article.age %>年</div>
+<div class="show_field"><span>築年数</span> <%= "#{@article.age}年" %></div>
 <div class="show_field"><span>備考</span>　<%= @article.remark %></div>
 </div>
 <hr>

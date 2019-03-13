@@ -1,8 +1,6 @@
-<div class="wrapper">
   <h2>物件登録</h2>
   <% flash.each do |key, value| %>
     <%= content_tag(:div, value, class: "#{key}") %>
   <% end %>
   <%= render 'form'%>
   <%= link_to '戻る', articles_path %>
-</div>

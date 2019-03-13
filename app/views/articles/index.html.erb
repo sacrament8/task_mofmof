@@ -13,9 +13,9 @@
   <% @articles.each do |article| %>
   <tr>
     <td><%= article.name %></td>
-    <td><%= article.rent %>円</td>
+    <td><%= "#{article.rent.to_s(:delimited)}円" %></td>
     <td><%= article.address %></td>
-    <td><%= article.age %>年</td>
+    <td><%= "#{article.age}年" %></td>
     <td><%= article.remark %></td>
     <td><%= link_to '詳細', article_path(article) %></td>
     <td><%= link_to '編集', edit_article_path(article) %></td>

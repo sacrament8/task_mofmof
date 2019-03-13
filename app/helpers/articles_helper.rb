@@ -6,4 +6,11 @@ module ArticlesHelper
       '更新する'
     end
   end
+  def url_new_or_edit
+    if action_name == 'new'
+      articles_path
+    elsif action_name == 'edit'
+      article_path
+    end
+  end
 end

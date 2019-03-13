@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i(edit show destroy)
+  before_action :set_article, only: %i(edit show destroy update)
 
   def index
     @articles = Article.all
@@ -11,11 +11,24 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    if Article.create(article_params)
+    begin
+      Article.create!(article_params)
       redirect_to articles_path, notice: '登録に成功しました'
-    else
-      flash.now[:danger] = '入力に不備がありました'
+    rescue StatementInvalid
+      flash.now[:danger] = '入力欄に空欄があります'
       render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @article.update(article_params)
+      redirect_to articles_path, notice: '物件情報の更新に成功しました'
+    else
+      flash.now[:danger] = '入力欄に空欄があります'
+      render :edit
     end
   end
 
