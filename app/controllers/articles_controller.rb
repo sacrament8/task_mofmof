@@ -11,10 +11,10 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    begin
-      Article.create!(article_params)
+    @article = Article.new(article_params)
+    if @article.save
       redirect_to articles_path, notice: '登録に成功しました'
-    rescue StatementInvalid
+    else
       flash.now[:danger] = '入力欄に空欄があります'
       render :new
     end
@@ -36,7 +36,7 @@ class ArticlesController < ApplicationController
     @article.destroy
     redirect_to articles_path, notice: '物件情報の削除に成功しました'
   end
-  
+
   private
 
   def article_params
