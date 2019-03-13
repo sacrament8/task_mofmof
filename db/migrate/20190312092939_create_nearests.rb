@@ -1,6 +1,6 @@
-class CreateSecondNearests < ActiveRecord::Migration[5.0]
+class CreateNearests < ActiveRecord::Migration[5.0]
   def change
-    create_table :second_nearests do |t|
+    create_table :nearests do |t|
       t.string :line_name, null: false
       t.string :station_name, null: false
       t.integer :walk_time, null: false

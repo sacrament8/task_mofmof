@@ -1,25 +1,26 @@
-<h2>一覧</h2>
-<hr>
 <h2>物件一覧</h2>
-<table>
-<tr>
-<th>物件名</th>
-<th>賃料</th>
-<th>住所</th>
-<th>築年数</th>
-<th>備考</th>
-</tr>
-<% @articles.each do |article| %>
-<tr>
-<td><%= article.name %></td>
-<td><%= article.rent %>円</td>
-<td><%= article.address %></td>
-<td><%= article.age %>年</td>
-<td><%= article.remark %></td>
-<td><%= link_to '詳細', article_path(article) %></td>
-<td><%= link_to '編集', edit_article_path(article) %></td>
-<td><%= link_to '削除', article_path(article), method: :delete, data: { confirm: '物件情報を削除しますか?' } %></td>
-</tr>
+<% flash.each do |key, value| %>
+	<%= content_tag(:div, value, class: "#{key}") %>
 <% end %>
+<table>
+  <tr>
+    <th><span>物件名</span></th>
+    <th><span>賃料</span></th>
+    <th><span>住所</span></th>
+    <th><span>築年数</span></th>
+    <th><span>備考</span></th>
+  </tr>
+  <% @articles.each do |article| %>
+  <tr>
+    <td><%= article.name %></td>
+    <td><%= article.rent %>円</td>
+    <td><%= article.address %></td>
+    <td><%= article.age %>年</td>
+    <td><%= article.remark %></td>
+    <td><%= link_to '詳細', article_path(article) %></td>
+    <td><%= link_to '編集', edit_article_path(article) %></td>
+    <td><%= link_to '削除', article_path(article), method: :delete, data: { confirm: '物件情報を削除しますか?' } %></td>
+  </tr>
+  <% end %>
 </table>
 <div><%= link_to '物件を登録する', new_article_path %></div>

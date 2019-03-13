@@ -1,0 +1,17 @@
+<div class="show_wrapper">
+<div class="show_field"><span>物件名:</span> <%= @article.name %></div>
+<div class="show_field"><span>賃料:</span> <%= @article.rent %>円</div>
+<div class="show_field"><span>住所:</span> <%= @article.address %></div>
+<div class="show_field"><span>築年数</span> <%= @article.age %>年</div>
+<div class="show_field"><span>備考</span>　<%= @article.remark %></div>
+</div>
+<hr>
+<% @article.nearests.each do |near, i| %>
+  <h5 class="show_field"><span>最寄り駅</span><%= i.to_i + 1 %></h5>
+  <div class="show_wrapper">
+  <div class="show_field"><span>路線名</span> <%= near.line_name %></div>
+  <div class="show_field"><span>駅名</span> <%= near.station_name %></div>
+  <div class="show_field"><span>徒歩分数</span> <%= near.walk_time %>分</div>
+  </div>
+<% end %>
+<div><%= link_to '編集', edit_article_path(@article) %> | <%= link_to '戻る', articles_path %></div>

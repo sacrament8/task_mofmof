@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SecondNearestTest < ActiveSupport::TestCase
+class NearestTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
